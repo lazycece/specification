@@ -28,13 +28,20 @@ google原生的是缩进两个，这里保持过往风格，即缩进4格，修�
 # maven集成
 pom.xml 加插件
 - 如果用原生的google_checks，configLocation 直接填 google_checks.xml（Maven 插件会从 Checkstyle 依赖里解析内置资源）
-- 如果要挂本地修改版，把 configLocation 改成 具体路径：如config/checkstyle/google_checks.xml
+- 如果要挂本地修改版，把 configLocation 改成 具体路径：如config/checkstyle/google_checks.xml，checkstyle文件jar版本和依赖版本要对应
 
 ```xml
 <plugin>
   <groupId>org.apache.maven.plugins</groupId>
   <artifactId>maven-checkstyle-plugin</artifactId>
   <version>3.6.0</version>
+                  <!-- <dependencies>
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>11.1.0</version>
+                    </dependency>
+                </dependencies> -->
   <configuration>
     <configLocation>google_checks.xml</configLocation>
     <encoding>UTF-8</encoding>
